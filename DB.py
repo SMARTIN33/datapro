@@ -1,5 +1,10 @@
 import psycopg2
 from sys import argv
+from psycopg2.errors import *
+if len(argv) < 3 :
+    print ("Nous ne pouvons donner suite à votre demande : nombre insuffisant d'argument donné. Nous avons besoin au minimum d'une colonne et d'une table.")
+    exit (0)
+
 connection = psycopg2.connect(port=5432, host="localhost", user="postgres", password="RogerRafa1523", dbname="DB Goldenline") 
 
 cursor = connection.cursor()
@@ -14,7 +19,10 @@ print(colonnes)
 
 request = f"SELECT {colonnes} FROM \"{table}\""
 
-cursor.execute(request)
+try:
+    cursor.execute(request)
+except UndefinedColumn : 
+    print("le nom de colonne est erroné")
 
 result = cursor.fetchall()
 print(table.upper())    
