@@ -1,0 +1,111 @@
+<!DOCTYPE html><html>
+
+<head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"></head>
+
+    <body>
+     
+      <h1 style="text-align: center" ><font color="#105cad">KPI's  </h1></font>
+
+      <div style="display: inline;">Dashboard
+
+        <div class="card" style="margin-left: 7%;">
+          <center>
+          <h4 style="text-align: left" >Nombre de commandes reçues</h4>
+        <div style="display: inline">
+          <i style="font-size: 2em; float: left;" class="bi bi-bag-check-fill"></i>
+          <h2 style="float: right" >{{number_commands}}</h2></center></div></div>
+
+        <div class="card" >
+          <center>
+            <h4 style="text-align: left" >Nombre de produits vendus</h4>
+          <div style="display: inline">
+            <i style="font-size: 2em; float: left;" class="bi bi-box-seam"></i>
+            <h2 style="float: right" >{{number_products}}</h2></center></div></div>
+        
+            <div class="card" >
+            <center>
+              <h4 style="text-align: left" >Chiffre d'affaires</h4>
+            <div style="display: inline">
+              <i style="font-size: 2em; float: left;" class="bi bi-currency-euro"></i>
+              <h2 style="float: right" >{{revenue}}</h2></center></div></div>
+
+
+      </div>
+
+
+        <div>
+            <canvas height="105" id="myChart"></canvas> 
+          </div>
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          <script>
+            const ctx = document.getElementById('myChart');
+            new Chart(ctx, {
+              type: 'bar',
+              data: {
+                labels: [{% for categorie in categories %}"{{categorie}}",{% endfor %}],
+                datasets: [{
+                  label: 'Total des dépenses ',
+                  data: [{% for depense in depenses %}{{depense}},{% endfor %}],
+                  borderWidth: 1, 
+                  borderColor:"#1d69cc",
+                  backgroundColor:"#1d69cc"
+                },
+                         {label: 'Panier moyen des dépenses ',
+                           data: [{% for panier_moyen in paniers_moyens %}{{panier_moyen}},{% endfor %}],
+                           borderWidth: 3,
+                           backgroundColor: "#11ffeeff"
+                }]
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: true
+                  }
+                }
+              }
+            });
+          </script>
+
+    </body>
+    <head>
+        <title>Dashboard</title>
+        <style>
+           .button {
+              background-color: #1c87c9;
+              box-shadow: 0 5px 0 #105cad;
+              color: white;
+              padding: 1em 1.5em;
+              position: relative;
+              display: inline-block;
+               text-decoration: none;
+          }
+          .card {
+          background: #00416A;  /* fallback for old browsers */
+          background: linear-gradient(to right, #00416A, #c2c5c79f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+            color: rgb(253, 252, 250) ;
+            border-radius: 4%;
+            display: inline-block;
+            padding: 0.5%;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-right: 5%;
+            width: 400px;
+            height: 125px;
+          }
+
+        </style>
+     </head>
+     <body>
+      <div style="display : inline"> 
+        <a style="float: left" href="http://127.0.0.1:8000" title = "Retour" class="button">Retour</a> 
+
+        
+        <form method="GET" action="{% url 'chart:download' %}" style="float: right;">
+          <i class="bi bi-cloud-download"></i>
+          <button type="submit" class="button">Télécharger les données</button>
+          <label for="number">Nombre de lignes</label>
+          <input type="number"   id="number"  min="1"   max="1000"  value="5"   name="number">
+        </form>
+      </div>
+     </body>
+    </html>
