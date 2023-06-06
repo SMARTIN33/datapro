@@ -13,7 +13,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 def index(request):
 
-    """"Process pour obtenir les données afin de réaliser le dashboard."""
+    """"Affiche un dashboard dynamique en fonction du statut de la base de données."""
 
     depenses=[]
     catgories_csp=[]
@@ -59,7 +59,7 @@ def index(request):
 @csrf_exempt
 def download (request):
 
-    """"Permet de télécharger certaines données sous format csv."""
+    """"Télécharge un fichier csv contenant un nombre de ligne précisé par l'utilisateur, de la table Achat."""
 
     lignes, column_name=getAchatData(request.GET.get("number"))
     f=serialize_data("export_data_collecte.csv", column_name, lignes)
@@ -74,7 +74,7 @@ def download (request):
 
 def getAchatData (limit):
 
-    """"Permet d'obtenir des données d'achat des clients."""
+    """"Récupére les 'limit' premières lignes de la table Achat dans la base de données."""
 
     lignes= []
     column_name=[]
@@ -89,7 +89,7 @@ def getAchatData (limit):
 
 def serialize_data(filename, column_name, lignes):
 
-    """"Permet de visualiser le fichier avec le format choisi"""
+    """ Sérialise les 'lignes' de la base de données sous le format 'column_name' dans un fichier csv nommé 'filename". """
 
     f=open(filename, "w")
     for column in column_name:

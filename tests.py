@@ -8,6 +8,11 @@ import requests
 
 
 def dataset_tests():
+
+    """ Vérifie le bon fonctionnement du jeu de données en 2 étapes: 
+    - Créer une table factice et on insére des données. On vérifie si l'opération a bien fonctionné.
+    - On execute une partie du script du jeu de données et on s'assure que celui-ci est fonctionnel """
+
     connection,cursor = connectDB(user=credentials.USER, password=credentials.PASSWORD, dbname=credentials.DBNAME) 
 
     executeQuery("CREATE TABLE \"DATASET_TEST\" (id INTEGER PRIMARY KEY, nom VARCHAR(255), date timestamp)", cursor)
@@ -32,6 +37,9 @@ def dataset_tests():
     return True
 
 def export_tests():
+
+    """ On vérifie le bon fonctionnement de l'export des données. On envoie une requête 'POST' comme un utilisateur pourrait le faire et on analyse la réponse de la requête."""
+
     connection,cursor = connectDB(user=credentials.USER, password=credentials.PASSWORD, dbname=credentials.DBNAME) 
     response=requests.post("http://127.0.0.1:8000/chart/download?number=2")
     if response.status_code != 200:

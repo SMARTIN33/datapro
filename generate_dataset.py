@@ -12,6 +12,9 @@ def getTotalAchat(id_collecte,cursor):
     return(total)
 
 def insertCSP(cursor):
+
+    """Création de la table CSP avec ses données dans la base de données."""
+
     executeQuery("CREATE TABLE IF NOT EXISTS \"CSP\" (id_categorie INTEGER PRIMARY KEY, nom_categorie VARCHAR(255))", cursor)
     executeQuery("INSERT INTO \"CSP\" VALUES (1, 'ouvriers') ON CONFLICT DO NOTHING", cursor)
     executeQuery("INSERT INTO \"CSP\" VALUES (2, 'employés') ON CONFLICT DO NOTHING", cursor)
@@ -21,6 +24,9 @@ def insertCSP(cursor):
     executeQuery("INSERT INTO \"CSP\" VALUES (6, 'artisans, commerçants, chefs entreprise')ON CONFLICT DO NOTHING", cursor)
 
 def insertProduit(cursor):
+
+    """Création de la table Produit avec ses données dans la base de données."""
+
     executeQuery("CREATE TABLE IF NOT EXISTS \"Produit\" (id_produit INTEGER PRIMARY KEY, nom_produit VARCHAR(255))", cursor)
     executeQuery("INSERT INTO \"Produit\" VALUES (1, 'Multimédia') ON CONFLICT DO NOTHING", cursor)
     executeQuery("INSERT INTO \"Produit\" VALUES (2, 'Alimentaire') ON CONFLICT DO NOTHING", cursor)
@@ -29,6 +35,9 @@ def insertProduit(cursor):
     executeQuery("INSERT INTO \"Produit\" VALUES (5, 'Santé') ON CONFLICT DO NOTHING", cursor)
 
 def insertMagasin(cursor):
+
+    """Création de la table Magasin avec ses données dans la base de données."""
+
     executeQuery("CREATE TABLE IF NOT EXISTS \"Magasin\" (id_numero_magasin INTEGER PRIMARY KEY, nom_magasin VARCHAR(255), ville_magasin VARCHAR(255))", cursor)
     executeQuery("INSERT INTO \"Magasin\" VALUES (1, 'Goldenline & CO','Lyon') ON CONFLICT DO NOTHING", cursor)
     executeQuery("INSERT INTO \"Magasin\" VALUES (2, 'Goldenline & CO','Nice') ON CONFLICT DO NOTHING", cursor)
@@ -42,6 +51,9 @@ def insertMagasin(cursor):
     executeQuery("INSERT INTO \"Magasin\" VALUES (10, 'Goldenline & CO','Pau') ON CONFLICT DO NOTHING", cursor)
 
 def insertCollecte(cursor):
+
+    """Création de la table Collecte et Collecte_produit avec leurs données dans la base de données."""
+
     executeQuery("CREATE TABLE IF NOT EXISTS \"Collecte\" (id_collecte INTEGER PRIMARY KEY, id_numero_magasin VARCHAR(255))", cursor)
     executeQuery("CREATE TABLE IF NOT EXISTS \"Collecte_produit\" (id_collecte INTEGER, id_produit INTEGER, quantite_produit INTEGER, prix_unitaire_produit double precision, PRIMARY KEY(id_collecte, id_produit, quantite_produit, prix_unitaire_produit))", cursor)
     
@@ -63,6 +75,9 @@ def insertCollecte(cursor):
    
 
 def insertAchat(cursor):
+
+    """Création de la table Achat avec ses données dans la base de données."""
+
     executeQuery("CREATE TABLE IF NOT EXISTS \"Achat\" (id_achat INTEGER PRIMARY KEY, nombre_enfant_client INTEGER, id_csp INTEGER, id_collecte INTEGER, total_achat double precision, date_achat timestamp)", cursor)
     executeQuery(f"INSERT INTO \"Achat\" VALUES (1, 5,4,1,{getTotalAchat(1,cursor)}, timestamp '2023-04-10') ON CONFLICT DO NOTHING",cursor)
     executeQuery(f"INSERT INTO \"Achat\" VALUES (2, 2,5,2,{getTotalAchat(2,cursor)}, timestamp '2023-04-15') ON CONFLICT DO NOTHING",cursor)
