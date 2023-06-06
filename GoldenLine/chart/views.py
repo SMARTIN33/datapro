@@ -5,11 +5,16 @@ from .models import *
 from django.db import connection
 from django.shortcuts import *
 import os
+from django.views.decorators.csrf import csrf_exempt
+
 
 # Create your views here.
 
 
 def index(request):
+
+    """"Process pour obtenir les données afin de réaliser le dashboard."""
+
     depenses=[]
     catgories_csp=[]
     nombre_achats=[]
@@ -51,17 +56,42 @@ def index(request):
     template=loader.get_template('chart.html')
     return HttpResponse(template.render(context.flatten()))
 
+@csrf_exempt
 def download (request):
-    print(request.GET.get("number"))
+
+    """"Permet de télécharger certaines données sous format csv."""
+
+    lignes, column_name=getAchatData(request.GET.get("number"))
+    f=serialize_data("export_data_collecte.csv", column_name, lignes)
+    filename=f.name
+    f.close()
+    response=FileResponse(open("export_data_collecte.csv", "rb"))
+   
+    response['Content-Disposition'] = 'inline; filename=' + os.path.basename(filename)
+   
+    return response
+    
+
+def getAchatData (limit):
+
+    """"Permet d'obtenir des données d'achat des clients."""
+
     lignes= []
     column_name=[]
     with connection.cursor() as cursor: 
-        cursor.execute("SELECT * from \"Achat\" LIMIT %s",request.GET.get("number"))
+        cursor.execute("SELECT * from \"Achat\" LIMIT %s",limit)
         lignes=cursor.fetchall()
         cursor.execute("SELECT column_name FROM information_schema.columns WHERE table_schema = 'public' AND table_name = 'Achat' order by ordinal_position")
         column_name=cursor.fetchall()
     column_name = [elem[0] for elem in column_name]
-    f=open("export_data_collecte.csv", "w")
+    return (lignes, column_name)
+
+
+def serialize_data(filename, column_name, lignes):
+
+    """"Permet de visualiser le fichier avec le format choisi"""
+
+    f=open(filename, "w")
     for column in column_name:
         f.write(column)
         f.write(";")
@@ -71,10 +101,4 @@ def download (request):
             f.write(str(c))
             f.write(";")
         f.write("\n")
-    
-    f.close()
-    response=FileResponse(open("export_data_collecte.csv", "rb"))
-    response['Content-Disposition'] = 'inline; filename=' + os.path.basename(f.name)
-    return response
-    
- 
+    return(f)
