@@ -44,8 +44,8 @@ Disponible en ligne grace à pythonanywhere : [Accès à l'application](http://s
 
 ## Outils recommandés
 
-PG amdin 4
-VS Code
-Python
-Django
-Chrome
+- PG amdin 4
+- VS Code
+- Python
+- Django
+- Chrome
