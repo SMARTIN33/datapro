@@ -38,9 +38,9 @@ Disponible en ligne grace à pythonanywhere : [Accès à l'application](http://s
 
 ## Langages et Frameworks
 
-- Utilisation de python & Django pour servir les requêtes vers le back et du back
-- Utilisation du Javascipt, html et CSS pour produire une interface interactive & dynamique pour le client.
-- PostgreSQL pour la création et la maintenance d"une base de données persistantes
+- Utilisation de python & Django pour servir les requêtes vers le back et du back.
+- Utilisation du Javascipt, html et CSS pour produire une interface intéractive & dynamique pour le client.
+- PostgreSQL pour la création et la maintenance d"une base de données persistante.
 
 ## Outils recommandés
 
