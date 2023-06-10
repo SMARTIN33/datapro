@@ -12,12 +12,14 @@ Disponible en ligne grace à pythonanywhere : [Accès à l'application](http://s
 - 📦 [Prérequis](#prérequis)
 - 🚀 [Installation](#installation)
 - 🛠️ [Utilisation](#utilisation)
-- 🏷 [️ Tests](#test)
+- 🏷 [️Tests](#test)
+- Langages & Frameworks
+- Outils recommandés
 
 ## Prérequis
 
 Python 3.10 (syntaxe match, ...)
-PostGreSQL 15.1 (à vérifier)
+PostgreSQL 15
 
 ## Installation
 
