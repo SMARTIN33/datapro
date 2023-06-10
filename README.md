@@ -13,7 +13,7 @@ Disponible en ligne grace à pythonanywhere : [Accès à l'application](http://s
 - 🚀 [Installation](#installation)
 - 🛠️ [Utilisation](#utilisation)
 - 🏷 [️Tests](#test)
-- \f015[️Langages & Frameworks](#Langages & Frameworks)
+- [️Langages & Frameworks](#Langages & Frameworks)
 - [️Outils recommandés](#Outils recommandés)
 
 ## Prérequis
