@@ -13,7 +13,7 @@ Disponible en ligne grace à pythonanywhere : [Accès à l'application](http://s
 - 🚀 [Installation](#installation)
 - 🛠️ [Utilisation](#utilisation)
 - 🏷 [️Tests](#test)
-- 📚[️Langages & Frameworks](#Langages-Frameworks)
+- 📚[️Langages et Frameworks](#Langages-Frameworks)
 - 📝[️Outils recommandés](#Outils-recommandés)
 
 ## Prérequis
@@ -36,7 +36,7 @@ Disponible en ligne grace à pythonanywhere : [Accès à l'application](http://s
 - Vérification du bon fonctionnement du jeu de données
 - Vérification du bon fonctionnement de l'export de données
 
-## Langages & Frameworks
+## Langages et Frameworks
 
 - Utilisation de python & Django pour servir les requêtes vers le back et du back
 - Utilisation du Javascipt, html et CSS pour produire une interface interactive & dynamique pour le client.
