@@ -1,7 +1,7 @@
 # Application Web Goldenline
 
 
-## `À propos`
+## À propos
 
 Développement d’une solution web permettant de mieux visualiser les données. 
 Disponible en ligne grace à pythonanywhere : [Accès à l'application](http://smartin17.eu.pythonanywhere.com/)
