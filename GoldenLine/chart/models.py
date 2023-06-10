@@ -14,7 +14,8 @@ class Achat(models.Model):
     id_csp = models.IntegerField(blank=True, null=True)
     id_collecte = models.IntegerField(blank=True, null=True)
     total_achat = models.FloatField(blank=True, null=True)
-    
+    date_achat = models.DateTimeField(blank=True, null=True)
+
     class Meta:
         managed = False
         db_table = 'Achat'
@@ -29,26 +30,9 @@ class Csp(models.Model):
         db_table = 'CSP'
 
 
-class Client(models.Model):
-    id_numero_client = models.IntegerField()
-    prenom_client = models.CharField(max_length=255, blank=True, null=True)
-    nom_client = models.CharField(max_length=255, blank=True, null=True)
-    mail_client = models.CharField(max_length=255, blank=True, null=True)
-    date_achat_client = models.DateTimeField(primary_key=True)
-    nombre_enfant_client = models.IntegerField(blank=True, null=True)
-    id_categorie = models.IntegerField(blank=True, null=True)
-    id_collecte = models.CharField(max_length=255, blank=True, null=True)
-    id_numero_magasin = models.IntegerField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'Client'
-
-
 class Collecte(models.Model):
     id_collecte = models.IntegerField(primary_key=True)
-    date_achat_client = models.DateTimeField(blank=True, null=True)
-    id_numero_magasin = models.CharField(max_length=255, blank=True, null=True)
+    id_numero_magasin = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -56,7 +40,7 @@ class Collecte(models.Model):
 
 
 class CollecteProduit(models.Model):
-    id_collecte = models.IntegerField(primary_key=True)  # The composite primary key (id_collecte, id_produit, quantite_produit, prix_unitaire_produit) found, that is not supported. The first column is selected.
+    id_collecte = models.IntegerField(primary_key=True)
     id_produit = models.IntegerField()
     quantite_produit = models.IntegerField()
     prix_unitaire_produit = models.FloatField()

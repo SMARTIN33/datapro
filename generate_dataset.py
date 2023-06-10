@@ -54,7 +54,7 @@ def insertCollecte(cursor):
 
     """Création de la table Collecte et Collecte_produit avec leurs données dans la base de données."""
 
-    executeQuery("CREATE TABLE IF NOT EXISTS \"Collecte\" (id_collecte INTEGER PRIMARY KEY, id_numero_magasin VARCHAR(255))", cursor)
+    executeQuery("CREATE TABLE IF NOT EXISTS \"Collecte\" (id_collecte INTEGER PRIMARY KEY, id_numero_magasin INTEGER)", cursor)
     executeQuery("CREATE TABLE IF NOT EXISTS \"Collecte_produit\" (id_collecte INTEGER, id_produit INTEGER, quantite_produit INTEGER, prix_unitaire_produit double precision, PRIMARY KEY(id_collecte, id_produit, quantite_produit, prix_unitaire_produit))", cursor)
     
     executeQuery("INSERT INTO \"Collecte\" VALUES (1, 5) ON CONFLICT DO NOTHING", cursor)
@@ -86,7 +86,7 @@ def insertAchat(cursor):
     executeQuery(f"INSERT INTO \"Achat\" VALUES (5, 5,4,5,{getTotalAchat(5,cursor)}, timestamp '2023-02-01') ON CONFLICT DO NOTHING",cursor)
     executeQuery(f"INSERT INTO \"Achat\" VALUES (6, 3,5,6,{getTotalAchat(6,cursor)}, timestamp '2023-08-01') ON CONFLICT DO NOTHING",cursor)
 
-connection,cursor = connectDB(user=credentials.USER, password=credentials.PASSWORD, dbname=credentials.DBNAME) 
+connection,cursor = connectDB(user=credentials.USER, password=credentials.PASSWORD, dbname=credentials.DBNAME, host=credentials.HOST, port=credentials.PORT) 
 
 
 insertCSP(cursor)

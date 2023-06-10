@@ -3,12 +3,12 @@ import psycopg2
 from sys import argv
 from psycopg2.errors import *
 
-def connectDB(user, password, dbname):
+def connectDB(user, password, dbname, host, port):
     
     """"Permet de se connecter entre la base de données postgreSQL & python. 
     Les éléments importants à notifier sont : le numéro de port, le type d'hébergeur, le nom de l'utilisateur, le mot de passe et le nom de la base de données."""
 
-    connection = psycopg2.connect(port=5432, host="localhost", user=user, password=password, dbname=dbname) 
+    connection = psycopg2.connect(port=port, host=host, user=user, password=password, dbname=dbname) 
     cursor = connection.cursor()
     return (connection, cursor)
 

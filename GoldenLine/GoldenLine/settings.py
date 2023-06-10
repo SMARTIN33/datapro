@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-!xbhoen0zvzx5^$_)2mritm$)tn!p&psbhnkl@d+0ifc+tx#ak'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['smartin17.eu.pythonanywhere.com', 'localhost', 'smartin17-187.postgres.eu.pythonanywhere-services.com']
 
 
 # Application definition
@@ -37,11 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'chart'
+    'chart',
+    'details',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -77,11 +79,11 @@ WSGI_APPLICATION = 'GoldenLine.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'DB Goldenline',
-        'USER': 'postgres',
-        'PASSWORD':'RogerRafa1523',
-        'HOST':'localhost',
-        'PORT':'5432'
+        'NAME': 'goldenline',
+        'USER': 'super',
+        'PASSWORD':'Thiemdom1537',
+        'HOST':'smartin17-187.postgres.eu.pythonanywhere-services.com',
+        'PORT':'10187'
     }
 }
 
@@ -120,7 +122,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_ROOT = "/home/smartin17/www/GoldenLine/static/"
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

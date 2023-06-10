@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+    
+    <body>
+        
+            <form method="GET" action="{% url 'details:index' %}" style="float: right;">
+                <i class="bi bi-cloud-download"></i>
+                <button type="submit" class="button">Visualiser</button>
+                <label for="id_achat">Id Achat</label>
+                <input type="number"   id="id_achat"  min="1"   max="1000"  value="1"   name="id_achat">
+            </form>
+
+            <h1>{{total_achat}}</h1>
+        <div width="100px"  height="200px"> 
+
+            <canvas id="myChart"></canvas> 
+        </div>
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          <script>
+            const ctx = document.getElementById('myChart');
+            new Chart(ctx, { type:'doughnut', 
+            data : {
+            labels: [{% for categorie in categories %}"{{categorie}}",{% endfor %}],
+            datasets: [{
+              label: 'Dépenses par catégorie',
+              data: [{% for depense in depenses %}{{depense}},{% endfor %}],
+              backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+              ],
+              hoverOffset: 4
+            }],
+            options: {
+                aspectRatio: 1.4,
+                }
+          }});
+        </script>
+
+    
+
+   
+    </body>
+
+   
+
+
+</html>
