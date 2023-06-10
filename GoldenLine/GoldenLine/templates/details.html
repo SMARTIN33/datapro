@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+    
+    <body>
+       
+        <h1 style="text-align: center" ><font color="#105cad">KPI's  </h1></font>
+
+            <form method="GET" action="{% url 'details:index' %}" style="float: right;">
+                <i class="bi bi-cloud-download"></i>
+                <button type="submit" class="button">Visualiser</button>
+                <label for="id_achat">Id Achat</label>
+                <input type="number"   id="id_achat"  min="1"   max="1000"  value="1"   name="id_achat">
+            </form>
+
+            <h2 style="text-align: center" ><font color="#105cad">Achat total : {{total_achat}}€ </h2></font>
+        <div width="100px"  height="200px"> 
+        </div>
+        
+            <div>
+            <canvas height="150px" id="myChart"></canvas> 
+        </div>
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          <script>
+            const ctx = document.getElementById('myChart');
+            new Chart(ctx, { type:'doughnut', 
+            data : {
+            labels: [{% for categorie in categories %}"{{categorie}}",{% endfor %}],
+            datasets: [{
+              label: 'Dépenses par catégorie',
+              data: [{% for depense in depenses %}{{depense}},{% endfor %}],
+              backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)',
+                'rgb(0, 255, 255)',
+                'rgb(255, 0, 255)',
+              ],
+              hoverOffset: 4
+            }],
+            options: {
+                aspectRatio: 1.4,
+                }
+          }});
+        </script>
+
+    <div style="display : inline"> 
+    <a style="float: left" href="http://smartin17.eu.pythonanywhere.com/" title = "Home" class="button">Home</a> 
+    <a style="float: left" href="http://smartin17.eu.pythonanywhere.com/chart/" title = "Dashboard Général" class="button">Dashboard Général</a>
+    
+    <style>
+        .button {
+           background-color: #1c87c9;
+           box-shadow: 0 5px 0 #105cad;
+           color: white;
+           padding: 1em 1.5em;
+           position: relative;
+           display: inline-block;
+            text-decoration: none;
+       }
+   
+    </body>
+
+   
+
+
+</html>
