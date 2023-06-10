@@ -18,8 +18,8 @@ Disponible en ligne grace à pythonanywhere : [Accès à l'application](http://s
 
 ## Prérequis
 
-Python 3.10 (syntaxe match, ...)
-PostgreSQL 15
+- Python 3.10 (syntaxe match, ...)
+- PostgreSQL 15
 
 ## Installation
 
