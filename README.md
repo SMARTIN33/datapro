@@ -23,8 +23,8 @@ PostgreSQL 15
 
 ## Installation
 
-Django : créer l'application web
-Whitenoise : servir les fichiers static online
+- Django : créer l'application web
+- Whitenoise : servir les fichiers static online
 
 ## Utilisation
 
