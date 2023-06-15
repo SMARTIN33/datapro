@@ -10,7 +10,7 @@ Disponible en ligne grace à pythonanywhere : [Accès à l'application](http://s
 
 - 🪧 [À propos](#à-propos)
 - 📦 [Prérequis](#prérequis)
-- 🚀 [Gettting started](#getting-started)
+- 🚀 [Getting started](#getting-started)
 - 🛠️ [Utilisation](#utilisation)
 - 🏷 [️Tests](#test)
 - 📚[️Langages Frameworks](#Langages-et-Frameworks)
@@ -21,7 +21,7 @@ Disponible en ligne grace à pythonanywhere : [Accès à l'application](http://s
 - Python 3.10 (syntaxe match, ...)
 - PostgreSQL 15
 
-## Gettting started
+## Getting started
 
 1. Cloner le projet :
 `git clone git@github.com:SMARTIN33/datapro.git`
