@@ -25,7 +25,7 @@ Disponible en ligne grace à pythonanywhere : [Accès à l'application](http://s
 #### 1. Cloner le projet :
 `git clone git@github.com:SMARTIN33/datapro.git`
 
-### 2. Installer les dépendances:
+#### 2. Installer les dépendances:
 `pip install -r requirements.txt`
 
 #### 3. Créer une base de données avec PGadmin 4:
