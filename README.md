@@ -10,7 +10,7 @@ Disponible en ligne grace à pythonanywhere : [Accès à l'application](http://s
 
 - 🪧 [À propos](#à-propos)
 - 📦 [Prérequis](#prérequis)
-- 🚀 [Installation](#installation)
+- 🚀 [Gettting started](#getting-started)
 - 🛠️ [Utilisation](#utilisation)
 - 🏷 [️Tests](#test)
 - 📚[️Langages Frameworks](#Langages-et-Frameworks)
@@ -21,10 +21,38 @@ Disponible en ligne grace à pythonanywhere : [Accès à l'application](http://s
 - Python 3.10 (syntaxe match, ...)
 - PostgreSQL 15
 
-## Installation
+## Gettting started
 
-- Django : créer l'application web
-- Whitenoise : servir les fichiers static online
+1. Cloner le projet :
+`git clone git@github.com:SMARTIN33/datapro.git`
+
+2. Installer les dépendances:
+`pip install -r requirements.txt`
+
+3. Créer une base de données avec PGadmin 4:
+- Clique droit sur Servers > Register > Server > Définir un nom, un port, un hostname, nom utilisateur et un mot de passe
+- Clique droit sur Database > Create Database > Définir un nom
+
+4. Modifier le fichier credentials.py :
+- USER 
+- PASSWORD
+- DBNAME
+- HOST
+- PORT
+
+5. Générer le jeu de données :
+`python generate_dataset.py`
+
+6. Modifier dans le fichier settings.py le dictionnaire Database (\GoldenLine\GoldenLine\settings.py) :
+- ENGINE
+- NAME
+- USER
+- PASSWORD
+- HOST
+- PORT
+
+7. Lancer le serveur :
+ `python manage.py runserver`  
 
 ## Utilisation
 
