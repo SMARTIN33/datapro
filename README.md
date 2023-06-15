@@ -53,6 +53,8 @@ Disponible en ligne grace à pythonanywhere : [Accès à l'application](http://s
 #### 7. Lancer le serveur :
  `python manage.py runserver`  
 
+#### 8. Potentionnellement la variable ALLOWED_HOSTS dans le fichier settings.py pour y ajouter un nouvel "hôte"
+
 ## Test
 
 2 tests majeurs sont proposés :
