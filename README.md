@@ -23,27 +23,27 @@ Disponible en ligne grace à pythonanywhere : [Accès à l'application](http://s
 
 ## Getting started
 
-1. Cloner le projet :
+### 1. Cloner le projet :
 `git clone git@github.com:SMARTIN33/datapro.git`
 
-2. Installer les dépendances:
+### 2. Installer les dépendances:
 `pip install -r requirements.txt`
 
-3. Créer une base de données avec PGadmin 4:
+### 3. Créer une base de données avec PGadmin 4:
 - Clique droit sur Servers > Register > Server > Définir un nom, un port, un hostname, nom utilisateur et un mot de passe
 - Clique droit sur Database > Create Database > Définir un nom
 
-4. Modifier le fichier credentials.py :
+### 4. Modifier le fichier credentials.py :
 - USER 
 - PASSWORD
 - DBNAME
 - HOST
 - PORT
 
-5. Générer le jeu de données :
+### 5. Générer le jeu de données :
 `python generate_dataset.py`
 
-6. Modifier dans le fichier settings.py le dictionnaire Database (\GoldenLine\GoldenLine\settings.py) :
+### 6. Modifier dans le fichier settings.py le dictionnaire Database (\GoldenLine\GoldenLine\settings.py) :
 - ENGINE
 - NAME
 - USER
@@ -51,7 +51,7 @@ Disponible en ligne grace à pythonanywhere : [Accès à l'application](http://s
 - HOST
 - PORT
 
-7. Lancer le serveur :
+### 7. Lancer le serveur :
  `python manage.py runserver`  
 
 ## Utilisation
