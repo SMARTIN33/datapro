@@ -45,7 +45,7 @@ sqlalchemy.url = driver://user:pass@localhost/DBname
 - Modifier user, pass, localhost, DBname
 
 #### 5. Générer le jeu de données :
-- fichier puthon : `python generate_dataset.py`(script plus complet et cohérent (toutes les tables et colonnes)) ou 
+- fichier python : `python generate_dataset.py`(script plus complet et cohérent : toutes les tables et colonnes) ou 
 - Via alembic `alembic upgrade head`
 
 #### 6. Modifier dans le fichier settings.py le dictionnaire Database (\GoldenLine\GoldenLine\settings.py) :
