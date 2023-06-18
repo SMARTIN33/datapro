@@ -39,6 +39,11 @@ Disponible en ligne grace à pythonanywhere : [Accès à l'application](http://s
 - HOST
 - PORT
 
+#### 4 bis. Modifier le fichier Alembic.ini :
+sqlalchemy.url = driver://user:pass@localhost/DBname
+- Modifier  driver > postgresql 
+- Modifier user, pass, localhost, DBname
+
 #### 5. Générer le jeu de données :
 `python generate_dataset.py` ou avec alembic `alembic upgrade head`
 
