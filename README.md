@@ -40,7 +40,7 @@ Disponible en ligne grace à pythonanywhere : [Accès à l'application](http://s
 - PORT
 
 #### 5. Générer le jeu de données :
-`python generate_dataset.py`
+`python generate_dataset.py` ou avec alembic `alembic upgrade head`
 
 #### 6. Modifier dans le fichier settings.py le dictionnaire Database (\GoldenLine\GoldenLine\settings.py) :
 - ENGINE
