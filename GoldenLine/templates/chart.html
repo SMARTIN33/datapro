@@ -33,7 +33,7 @@
       </div>
 
 
-        <div>
+        <div class = "canvas">
             <canvas height="105" id="myChart"></canvas> 
           </div>
           <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -89,19 +89,61 @@
             padding: 0.5%;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             margin-right: 5%;
-            width: 400px;
-            height: 125px;
+            width: 18em;
+            height: 8em;
           }
+
+          @media screen and (max-width: 1300px) { .card
+          {
+            margin-right : 3%;
+            width : 13em;
+            height : 6em; 
+          }.card h4{font-size : 0.6em}
+        
+          .canvas{height : 50em}
+
+        }
+
+
+          @media screen and (max-width: 1200px) { .card
+          {
+            margin-right : 3%;
+            width : 10em;
+            height : 6em;
+          }.card h4{font-size : 0.5em}
+          .canvas{height : 45em}
+
+          }
+          
+          @media screen and (max-width: 800px) { .card
+          {
+            margin-right : 1%;
+            width : 10em;
+            height : 4em; 
+          }.card h4{font-size : 0.25em}}
+          .canvas{height : 30em}
+
+
+          @media screen and (max-width: 600px) { .card
+          {
+            margin-right : 1%;
+            width : 5em;
+            height : 2em; 
+          }.card h4{font-size : 0.125em}
+          .canvas{height : 25em}
+          .card i {
+            font-size : 0.1em;
+         }}
+          
 
         </style>
      </head>
      <body>
-      <div style="display : inline"> 
-        <a style="float: left" href="http://smartin17.eu.pythonanywhere.com/" title = "Home" class="button">Home</a> 
-        <div style="display : inline">
-           
+    
+        <a style="float: left; margin-right: 2%" href="http://smartin17.eu.pythonanywhere.com/" title = "Home" class="button">Home</a> 
         <a style="float: left" href="http://smartin17.eu.pythonanywhere.com/details//" title = "Dashboard Détaillé" class="button">Dashboard Détaillé</a> 
-        
+        <div style="display : inline">
+
         <form method="GET" action="{% url 'chart:download' %}" style="float: right;">
           <i class="bi bi-cloud-download"></i>
           <button type="submit" class="button">Télécharger les données</button>
